@@ -1,0 +1,24 @@
+spring.application.name=OnTapCK
+
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=OnTapCK;trustServerCertificate=true;loginTimeout=30;integratedSecurity=false;encrypt=false;
+spring.datasource.username=sa
+spring.datasource.password=sapassword
+
+#jpa
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServer2012Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+# application.properties
+spring.jpa.properties.hibernate.transaction.jta.platform=org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
+#
+spring.jpa.properties.hibernate.packagesToScan= iuh.fit.se.entities
+
+#thymleaf
+#spring.thymeleaf.cache=false
+#spring.thymeleaf.prefix=classpath:/templates/
+#spring.thymeleaf.suffix=.html
+
+
+#<html lang="en" xmlns:th="http://www.thymeleaf.org">

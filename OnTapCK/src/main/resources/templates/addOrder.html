@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add order</title>
+</head>
+<body>
+<h3>add order</h3>
+<form action="/addNewOrder" method="get" th:object="${order}">
+    <div>
+        <label>ProID</label>
+        <input type="text" name="proID" th:field="*{proID}">
+    </div>
+
+    <div>
+        <label>ProName</label>
+        <input type="text" name="proName" th:field="*{proName}">
+    </div>
+
+    <div>
+        <label>quantity</label>
+        <input type="text" name="quantity" th:field="*{quantity}">
+    </div>
+
+    <div>
+        <label>price</label>
+        <input type="text" name="price" th:field="*{price}">
+    </div>
+
+    <button type="submit">ADD</button>
+</form>
+</body>
+<style>
+    div {
+        margin-top: 10px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input, button {
+        margin-top: 10px;
+        width: 300px;
+        height: 20px;
+    }
+</style>
+</html>

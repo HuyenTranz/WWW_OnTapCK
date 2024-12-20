@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div><a th:href="@{addOrder}">New Order</a></div>
+<div>
+    <form action="/search" method="get">
+        <label>ProName: </label>
+        <input type="text" name="keyword" placeholder="Nhap proName can tim...">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+</div>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>proID</th>
+            <th>proName</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Quan li</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order: ${orderList}">
+            <td th:text="${order.ID}"></td>
+            <td th:text="${order.proID}"></td>
+            <td th:text="${order.proName}"></td>
+            <td th:text="${order.quantity}"></td>
+            <td th:text="${order.price}"></td>
+            <td>
+                <a th:href="@{'/details/' + ${order.ID}}">Chi tiết | </a>
+                <a th:href="@{'/details/' + ${order.ID}}">Chỉnh sửa | </a>
+                <a th:href="@{'/delete/' + ${order.ID}}">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: center">
+  <span th:each="i : ${#numbers.sequence(0, totalPage - 1)}">
+    <a th:href="@{|/homePage?page=${i}|}" th:text="${i + 1}">1</a>
+  </span>
+</div>
+</body>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+</html>

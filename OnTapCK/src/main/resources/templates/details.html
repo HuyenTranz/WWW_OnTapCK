@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết</title>
+</head>
+<body>
+<h3>Chi tiết order</h3>
+<!--<form action="/edit" method="get">-->
+<!--    <div>-->
+<!--        <label>OrderID</label>-->
+<!--        <input type="text" name="ID" th:value="${order.ID}" readonly>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>proID</label>-->
+<!--        <input type="text" name="ProID" th:value="${order.proID}">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>proName</label>-->
+<!--        <input type="text" name="ProName" th:value="${order.proName}">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>quantity</label>-->
+<!--        <input type="text" name="Quantity" th:value="${order.quantity}">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>price</label>-->
+<!--        <input type="text" name="Price" th:value="${order.price}">-->
+<!--    </div>-->
+<!--    <button type="submit">EDIT</button>-->
+<!--</form>-->
+<form action="/edit" method="get" th:object="${order}">
+    <div>
+        <label>OrderId</label>
+        <input type="text" name="id" th:field="*{ID}" readonly >
+    </div>
+    <div>
+        <!--        <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>-->
+        <label>ProID</label>
+        <input type="text" name="proID" th:field="*{proID}"> | <span style="color:red" th:if="${#fields.hasErrors('proID')}" th:errors="*{proID}"></span>
+    </div>
+    <div>
+        <label>ProName</label>
+        <input type="text" name="proName" th:field="*{proName}"> | <span style="color:red" th:if="${#fields.hasErrors('proName')}" th:errors="*{proName}"></span>
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input type="text" name="quantity" th:field="*{quantity}"> | <span style="color:red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
+    </div>
+    <div>
+        <label>Price</label>
+        <input type="text" name="price" th:field="*{price}"> | <span style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+    </div>
+    <button type="submit">Edit</button>
+</form>
+<h4><a href="/">Back to Home</a></h4>
+<h3>Total price: <span th:text="${total}"></span>VND</h3>
+</body>
+<style>div {
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+}
+
+input, button {
+    margin-top: 10px;
+    width: 300px;
+    height: 20px;
+}</style>
+</html>
